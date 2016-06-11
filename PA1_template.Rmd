@@ -28,6 +28,8 @@ The mean of total number of steps taken per day is `r my_mean`.  The median of t
 ```{r}
 by_interval=summarise(group_by(data_exp,interval),number_of_steps=mean(steps))
 with(by_interval,plot(interval,number_of_steps,type='l',xlab='interval',ylab='average steps',main='steps vs interval'))
+dev.copy(png,'figure/stepvsinterval.png')
+dev.off()
 max_value=by_interval[which.max(by_interval$number_of_steps),]$interval
 ```
 The interval containing the highest value is `r max_value`  
@@ -52,6 +54,8 @@ returned$date=as.Date(data_exp_new$date)
 data_exp_new=returned
 sum_steps=tapply(data_exp_new$steps,as.factor(data_exp_new$date),sum)
 hist(sum_steps)
+dev.copy(png,'figure/Histogram_of_step2.png')
+dev.off()
 my_mean_new=mean(sum_steps)
 my_median_new=median(sum_steps)
 ```
@@ -65,4 +69,6 @@ new_data=mutate(data_exp_new,day=ifelse(weekdays(date) %in% c('土曜日','日�
 new_data$day=factor(new_data$day)
 by_interval_day=summarise(group_by(new_data,interval,day),number_of_steps=mean(steps))
 xyplot(number_of_steps~as.numeric(interval)|day,data=by_interval_day,type='l',xlab='interval',ylab='average steps',main='steps vs day',layout=c(1,2))
+dev.copy(png,'figure/steps vs day_by_week_day.png')
+dev.off()
 ```

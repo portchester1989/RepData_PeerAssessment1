@@ -78,6 +78,24 @@ with(by_interval,plot(interval,number_of_steps,type='l',xlab='interval',ylab='av
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 ```r
+dev.copy(png,'figure/stepvsinterval.png')
+```
+
+```
+## quartz_off_screen 
+##                 3
+```
+
+```r
+dev.off()
+```
+
+```
+## quartz_off_screen 
+##                 2
+```
+
+```r
 max_value=by_interval[which.max(by_interval$number_of_steps),]$interval
 ```
 The interval containing the highest value is 835  
@@ -108,6 +126,24 @@ hist(sum_steps)
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ```r
+dev.copy(png,'figure/Histogram_of_step2.png')
+```
+
+```
+## quartz_off_screen 
+##                 3
+```
+
+```r
+dev.off()
+```
+
+```
+## quartz_off_screen 
+##                 2
+```
+
+```r
 my_mean_new=mean(sum_steps)
 my_median_new=median(sum_steps)
 ```
@@ -125,3 +161,21 @@ xyplot(number_of_steps~as.numeric(interval)|day,data=by_interval_day,type='l',xl
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+
+```r
+dev.copy(png,'figure/steps vs day_by_week_day.png')
+```
+
+```
+## quartz_off_screen 
+##                 3
+```
+
+```r
+dev.off()
+```
+
+```
+## quartz_off_screen 
+##                 2
+```
